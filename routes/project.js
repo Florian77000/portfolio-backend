@@ -10,4 +10,12 @@ router.get('/', (req,res) => {
 })
 });
 
+router.get('/:id', (req,res) => {
+    const {id} = req.params;
+    Project.findById(id)
+    .then((data)=> {
+        res.json({result:true,data})
+    })
+})
+
 module.exports=router;
